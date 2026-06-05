@@ -1,0 +1,45 @@
+Using launch settings from src\UniRide.API\Properties\launchSettings.json...
+C:\Users\Lenovo\source\repos\UniRide\src\UniRide.Application\UniRide.Application.csproj : warning NU1903: Package 'AutoMapper' 13.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x [C:\Users\Lenovo\source\repos\UniRide\src\UniRide.API\UniRide.API.csproj]
+C:\Users\Lenovo\source\repos\UniRide\src\UniRide.API\UniRide.API.csproj : warning NU1903: Package 'AutoMapper' 13.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x
+C:\Users\Lenovo\source\repos\UniRide\src\UniRide.API\UniRide.API.csproj : warning NU1903: Package 'AutoMapper' 13.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x
+C:\Users\Lenovo\source\repos\UniRide\src\UniRide.Application\UniRide.Application.csproj : warning NU1903: Package 'AutoMapper' 13.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x
+[21:59:13 INF] Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+[21:59:13 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS Reports (
+    ReportId INTEGER NOT NULL CONSTRAINT PK_Reports PRIMARY KEY AUTOINCREMENT,
+    ReporterId INTEGER NOT NULL,
+    TargetUserId INTEGER NULL,
+    RideId INTEGER NULL,
+    Reason TEXT NOT NULL,
+    Details TEXT NOT NULL,
+    Status INTEGER NOT NULL,
+    ResolvedAt TEXT NULL,
+    CreatedAt TEXT NOT NULL,
+    UpdatedAt TEXT NULL,
+    CONSTRAINT FK_Reports_Users_ReporterId FOREIGN KEY (ReporterId) REFERENCES Users (UserId) ON DELETE RESTRICT,
+    CONSTRAINT FK_Reports_Users_TargetUserId FOREIGN KEY (TargetUserId) REFERENCES Users (UserId) ON DELETE RESTRICT,
+    CONSTRAINT FK_Reports_Rides_RideId FOREIGN KEY (RideId) REFERENCES Rides (RideId) ON DELETE CASCADE
+);
+[21:59:13 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX IF NOT EXISTS IX_Rides_RecurrenceGroupId ON Rides (RecurrenceGroupId);
+[21:59:13 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX IF NOT EXISTS IX_Reports_ReporterId ON Reports (ReporterId);
+[21:59:13 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX IF NOT EXISTS IX_Reports_TargetUserId ON Reports (TargetUserId);
+[21:59:13 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX IF NOT EXISTS IX_Reports_RideId ON Reports (RideId);
+[21:59:13 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX IF NOT EXISTS IX_Reports_Status ON Reports (Status);
+[21:59:13 INF] Database ensured (SQLite, model-based).
+[21:59:13 INF] Executed DbCommand (2ms) [Parameters=[@__email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u"
+    WHERE "u"."Email" = @__email_0)
+[21:59:13 INF] User profile is available. Using 'C:\Users\Lenovo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[21:59:13 INF] Now listening on: https://localhost:49249
+[21:59:13 INF] Now listening on: http://localhost:49250
+[21:59:13 INF] Application started. Press Ctrl+C to shut down.
+[21:59:13 INF] Hosting environment: Development
+[21:59:13 INF] Content root path: C:\Users\Lenovo\source\repos\UniRide\src\UniRide.API
