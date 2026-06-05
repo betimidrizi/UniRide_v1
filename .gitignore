@@ -1,0 +1,16 @@
+bin/
+obj/
+.vs/
+node_modules/
+dist/
+logs/
+*.user
+*.suo
+*.trx
+TestResults/
+coverage/
+.env
+.env.local
+appsettings.*.local.json
+src/UniRide.API/logs/
+src/**/.buildcheck/

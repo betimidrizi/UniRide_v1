@@ -1,0 +1,1 @@
+Frontend React Client -> UniRide.API Controllers -> Application Services -> Repository Interfaces -> Infrastructure EF Core -> SQL Server LocalDB
